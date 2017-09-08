@@ -18,6 +18,15 @@ class ViewController: UIViewController {
 		return imageView
 	}()
 	
+	var speedTextBox = UITextField()
+	var goButton: UIButton = {
+		let button = UIButton()
+		button.setTitle("GO", forState: .Normal)
+		button.setTitleColor(UIColor.redColor(), forState: .Normal)
+		button.enabled = true
+		return button
+	}()
+
 	var needle: UIImageView = {
 		let imageView = UIImageView()
 		imageView.image = UIImage(named: "needle1")?.imageWithRenderingMode(.AlwaysTemplate)
@@ -29,9 +38,10 @@ class ViewController: UIViewController {
 	override func viewDidLoad() {
 		speedometerBackground.addSubview(needle)
 		view.addSubview(speedometerBackground)
+		view.addSubview(speedTextBox)
+		view.addSubview(goButton)
 		layout()
-		rotate(170)
-		//    needle.image = imageRotatedB  yDegrees(needle.image!, deg: CGFloat(self.getAngle(170)))
+		rotate(260)
 		super.viewDidLoad()
 	}
 	
@@ -52,6 +62,20 @@ class ViewController: UIViewController {
 			make.centerX.equalTo(view.snp_centerX)
 			make.centerY.equalTo(view.snp_centerY).offset(-70)
 		}
+		speedTextBox.backgroundColor = UIColor.blackColor()
+		speedTextBox.textColor = UIColor.whiteColor()
+		speedTextBox.snp_makeConstraints{ (make) -> Void in
+			make.top.equalTo(speedometerBackground.snp_bottom).offset(50)
+			make.width.equalTo(100)
+			make.height.equalTo(30)
+			make.centerX.equalTo(view.snp_centerX)
+		}
+		goButton.snp_makeConstraints{ (make) -> Void in
+			make.top.equalTo(speedTextBox.snp_bottom).offset(5)
+			make.width.equalTo(50)
+			make.height.equalTo(30)
+			make.centerX.equalTo(view.snp_centerX)
+		}
 	}
 	
 	//Max speed 260, Min speed 0
@@ -59,7 +83,7 @@ class ViewController: UIViewController {
 		let rotationAnimation = CABasicAnimation(keyPath: "transform.rotation")
 		rotationAnimation.fromValue = 0.0
 		rotationAnimation.toValue = degreeToRadian(getAngle(speed))
-		rotationAnimation.duration = 5.0
+		rotationAnimation.duration = 2.0
 		needle.layer.anchorPoint = CGPointMake(1, 0.5)
 		needle.layer.addAnimation(rotationAnimation, forKey: "nil")
 	}
