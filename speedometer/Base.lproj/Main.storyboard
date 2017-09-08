@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -17,53 +16,8 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3aC-QJ-v5q">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="81" y="371" width="239" height="238"/>
-                                </variation>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FYL-gz-0MZ">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                            </imageView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="FYL-gz-0MZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="8" id="9wC-j2-HQa"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="FYL-gz-0MZ" secondAttribute="trailing" constant="9" id="CZH-9J-211"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="FYL-gz-0MZ" secondAttribute="bottom" constant="485" id="O1K-Rz-PMB"/>
-                            <constraint firstItem="FYL-gz-0MZ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="f1F-yf-0Qo"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="3aC-QJ-v5q"/>
-                                <exclude reference="FYL-gz-0MZ"/>
-                            </mask>
-                            <mask key="constraints">
-                                <exclude reference="9wC-j2-HQa"/>
-                                <exclude reference="CZH-9J-211"/>
-                                <exclude reference="f1F-yf-0Qo"/>
-                                <exclude reference="O1K-Rz-PMB"/>
-                            </mask>
-                        </variation>
-                        <variation key="heightClass=regular-widthClass=compact">
-                            <mask key="subviews">
-                                <include reference="3aC-QJ-v5q"/>
-                                <include reference="FYL-gz-0MZ"/>
-                            </mask>
-                            <mask key="constraints">
-                                <include reference="9wC-j2-HQa"/>
-                                <include reference="CZH-9J-211"/>
-                                <include reference="f1F-yf-0Qo"/>
-                                <include reference="O1K-Rz-PMB"/>
-                            </mask>
-                        </variation>
                     </view>
-                    <connections>
-                        <outlet property="needle" destination="3aC-QJ-v5q" id="LS6-yO-DIb"/>
-                        <outlet property="speedometerBackground" destination="FYL-gz-0MZ" id="qFg-7S-sPq"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

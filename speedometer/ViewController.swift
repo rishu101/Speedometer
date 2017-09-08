@@ -7,25 +7,51 @@
 //
 
 import UIKit
+import SnapKit
 
 class ViewController: UIViewController {
+	
+	var needle: UIImageView = {
+		let imageView = UIImageView()
+		imageView.image = UIImage(named: "needle1")
+		imageView.contentMode = .ScaleAspectFit
+		return imageView
+	}()
 
-	@IBOutlet weak var speedometerBackground: UIImageView!
-	@IBOutlet weak var needle: UIImageView!
-	
-	
 	override func viewDidLoad() {
+		view.addSubview(needle)
+		layout()
+		rotate(170)
 		super.viewDidLoad()
-		speedometerBackground.image = UIImage(named: "needle.png")
-		speedometerBackground.contentMode = .ScaleAspectFill
-//		needle.image = UIImage(contentsOfFile: "needle.png")
-//		needle.contentMode = .ScaleAspectFill
-		// Do any additional setup after loading the view, typically from a nib.
 	}
 
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
-		// Dispose of any resources that can be recreated.
+	}
+	
+	func layout() {
+		needle.snp_makeConstraints{ (make) -> Void in
+			make.height.equalTo(150)
+			make.width.equalTo(150)
+			make.centerX.equalTo(view.snp_centerX)
+			make.centerY.equalTo(view.snp_centerY)
+		}
+	}
+	
+	func rotate(speed: Double) {
+//		while(true) {
+			let rotationAnimation = CABasicAnimation(keyPath: "transform.rotation")
+			rotationAnimation.fromValue = 0.0
+			rotationAnimation.toValue = degreeToRadian(getAngle(speed))
+			rotationAnimation.duration = 5.0
+			needle.layer.anchorPoint = CGPointMake(1, 0.5)
+		
+			self.needle.layer.addAnimation(rotationAnimation, forKey: nil)
+//		}
+	}
+	
+	func degreeToRadian(degree: Double) -> Double {
+		return (degree * M_PI) / 180
 	}
 	
 	func getAngle(speed: Double) -> Double {
@@ -34,7 +60,5 @@ class ViewController: UIViewController {
 		angle = unitAngle*speed
 		return angle
 	}
-
-
 }
 

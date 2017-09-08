@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9F051E8B189E964555EF6763 /* Pods_speedometer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82D399C901670F0B3DF8FD73 /* Pods_speedometer.framework */; };
 		AFF2C7AC1F61AD0900444504 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF2C7AB1F61AD0900444504 /* AppDelegate.swift */; };
 		AFF2C7AE1F61AD0900444504 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF2C7AD1F61AD0900444504 /* ViewController.swift */; };
 		AFF2C7B11F61AD0900444504 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFF2C7AF1F61AD0900444504 /* Main.storyboard */; };
@@ -15,6 +16,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		60911B21C9C4EB21802CF8BF /* Pods-speedometer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-speedometer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-speedometer/Pods-speedometer.debug.xcconfig"; sourceTree = "<group>"; };
+		62F2527C8FD4102D7FC30845 /* Pods-speedometer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-speedometer.release.xcconfig"; path = "Pods/Target Support Files/Pods-speedometer/Pods-speedometer.release.xcconfig"; sourceTree = "<group>"; };
+		82D399C901670F0B3DF8FD73 /* Pods_speedometer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_speedometer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFF2C7A81F61AD0900444504 /* speedometer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = speedometer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFF2C7AB1F61AD0900444504 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AFF2C7AD1F61AD0900444504 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -29,17 +33,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F051E8B189E964555EF6763 /* Pods_speedometer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		19F2FDB1A5253BBB0159B9F7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				82D399C901670F0B3DF8FD73 /* Pods_speedometer.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		511DF53C0B099D3A4767C445 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				60911B21C9C4EB21802CF8BF /* Pods-speedometer.debug.xcconfig */,
+				62F2527C8FD4102D7FC30845 /* Pods-speedometer.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		AFF2C79F1F61AD0900444504 = {
 			isa = PBXGroup;
 			children = (
 				AFF2C7AA1F61AD0900444504 /* speedometer */,
 				AFF2C7A91F61AD0900444504 /* Products */,
+				511DF53C0B099D3A4767C445 /* Pods */,
+				19F2FDB1A5253BBB0159B9F7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,9 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AFF2C7BA1F61AD0900444504 /* Build configuration list for PBXNativeTarget "speedometer" */;
 			buildPhases = (
+				F6B734307C1D64C4A9707CBF /* [CP] Check Pods Manifest.lock */,
 				AFF2C7A41F61AD0900444504 /* Sources */,
 				AFF2C7A51F61AD0900444504 /* Frameworks */,
 				AFF2C7A61F61AD0900444504 /* Resources */,
+				C795AF36752ADCAF4DC4245B /* [CP] Embed Pods Frameworks */,
+				092BB3C3B5924A091D28EF85 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -129,6 +156,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		092BB3C3B5924A091D28EF85 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-speedometer/Pods-speedometer-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C795AF36752ADCAF4DC4245B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-speedometer/Pods-speedometer-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F6B734307C1D64C4A9707CBF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		AFF2C7A41F61AD0900444504 /* Sources */ = {
@@ -245,6 +320,7 @@
 		};
 		AFF2C7BB1F61AD0900444504 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 60911B21C9C4EB21802CF8BF /* Pods-speedometer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = speedometer/Info.plist;
@@ -256,6 +332,7 @@
 		};
 		AFF2C7BC1F61AD0900444504 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 62F2527C8FD4102D7FC30845 /* Pods-speedometer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = speedometer/Info.plist;
