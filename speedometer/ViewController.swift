@@ -11,20 +11,30 @@ import SnapKit
 
 class ViewController: UIViewController {
 	
-	var needle: UIImageView = {
+	var speedometerBackground: UIImageView = {
 		let imageView = UIImageView()
-		imageView.image = UIImage(named: "needle1")
+		imageView.image = UIImage(named: "speedometer")
 		imageView.contentMode = .ScaleAspectFit
 		return imageView
 	}()
-
+	
+	var needle: UIImageView = {
+		let imageView = UIImageView()
+		imageView.image = UIImage(named: "needle1")?.imageWithRenderingMode(.AlwaysTemplate)
+		imageView.tintColor = UIColor.redColor()
+		imageView.contentMode = .ScaleAspectFit
+		return imageView
+	}()
+	
 	override func viewDidLoad() {
-		view.addSubview(needle)
+		speedometerBackground.addSubview(needle)
+		view.addSubview(speedometerBackground)
 		layout()
 		rotate(170)
+		//    needle.image = imageRotatedB  yDegrees(needle.image!, deg: CGFloat(self.getAngle(170)))
 		super.viewDidLoad()
 	}
-
+	
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
 	}
@@ -32,22 +42,26 @@ class ViewController: UIViewController {
 	func layout() {
 		needle.snp_makeConstraints{ (make) -> Void in
 			make.height.equalTo(150)
-			make.width.equalTo(150)
+			make.width.equalTo(100)
 			make.centerX.equalTo(view.snp_centerX)
 			make.centerY.equalTo(view.snp_centerY)
 		}
+		speedometerBackground.snp_makeConstraints{ (make) -> Void in
+			make.height.equalTo(300)
+			make.width.equalTo(300)
+			make.centerX.equalTo(view.snp_centerX)
+			make.centerY.equalTo(view.snp_centerY).offset(-70)
+		}
 	}
 	
+	//Max speed 260, Min speed 0
 	func rotate(speed: Double) {
-//		while(true) {
-			let rotationAnimation = CABasicAnimation(keyPath: "transform.rotation")
-			rotationAnimation.fromValue = 0.0
-			rotationAnimation.toValue = degreeToRadian(getAngle(speed))
-			rotationAnimation.duration = 5.0
-			needle.layer.anchorPoint = CGPointMake(1, 0.5)
-		
-			self.needle.layer.addAnimation(rotationAnimation, forKey: nil)
-//		}
+		let rotationAnimation = CABasicAnimation(keyPath: "transform.rotation")
+		rotationAnimation.fromValue = 0.0
+		rotationAnimation.toValue = degreeToRadian(getAngle(speed))
+		rotationAnimation.duration = 5.0
+		needle.layer.anchorPoint = CGPointMake(1, 0.5)
+		needle.layer.addAnimation(rotationAnimation, forKey: "nil")
 	}
 	
 	func degreeToRadian(degree: Double) -> Double {
@@ -56,9 +70,8 @@ class ViewController: UIViewController {
 	
 	func getAngle(speed: Double) -> Double {
 		var angle: Double = Double()
-		let unitAngle = 1.5
+		let unitAngle = Double(90.00/130.00)
 		angle = unitAngle*speed
 		return angle
 	}
 }
-
