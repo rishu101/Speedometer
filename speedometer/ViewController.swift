@@ -8,6 +8,7 @@
 
 import UIKit
 import SnapKit
+import Bond
 
 class ViewController: UIViewController {
 	
@@ -41,7 +42,7 @@ class ViewController: UIViewController {
 		view.addSubview(speedTextBox)
 		view.addSubview(goButton)
 		layout()
-		rotate(260)
+		goButton.addTarget(self, action: "rotate", forControlEvents: .TouchUpInside)
 		super.viewDidLoad()
 	}
 	
@@ -79,7 +80,8 @@ class ViewController: UIViewController {
 	}
 	
 	//Max speed 260, Min speed 0
-	func rotate(speed: Double) {
+	func rotate() {
+		let speed = Double(speedTextBox.text!)!
 		let rotationAnimation = CABasicAnimation(keyPath: "transform.rotation")
 		rotationAnimation.fromValue = 0.0
 		rotationAnimation.toValue = degreeToRadian(getAngle(speed))
@@ -94,7 +96,7 @@ class ViewController: UIViewController {
 	
 	func getAngle(speed: Double) -> Double {
 		var angle: Double = Double()
-		let unitAngle = Double(90.00/130.00)
+		let unitAngle = Double(180.00/260.00)
 		angle = unitAngle*speed
 		return angle
 	}
