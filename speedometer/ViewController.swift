@@ -14,7 +14,7 @@ class ViewController: UIViewController {
 	
 	var speedometerBackground: UIImageView = {
 		let imageView = UIImageView()
-		imageView.image = UIImage(named: "speedometer")
+		imageView.image = UIImage(named: "speedometer2")
 		imageView.contentMode = .ScaleAspectFit
 		return imageView
 	}()
@@ -52,10 +52,10 @@ class ViewController: UIViewController {
 	
 	func layout() {
 		needle.snp_makeConstraints{ (make) -> Void in
-			make.height.equalTo(150)
+			make.height.equalTo(100)
 			make.width.equalTo(100)
-			make.centerX.equalTo(view.snp_centerX)
-			make.centerY.equalTo(view.snp_centerY)
+			make.centerX.equalTo(view.snp_centerX).offset(0)
+			make.centerY.equalTo(view.snp_centerY).offset(-40)
 		}
 		speedometerBackground.snp_makeConstraints{ (make) -> Void in
 			make.height.equalTo(300)
@@ -82,12 +82,14 @@ class ViewController: UIViewController {
 	//Max speed 260, Min speed 0
 	func rotate() {
 		let speed = Double(speedTextBox.text!)!
-		let rotationAnimation = CABasicAnimation(keyPath: "transform.rotation")
-		rotationAnimation.fromValue = 0.0
-		rotationAnimation.toValue = degreeToRadian(getAngle(speed))
-		rotationAnimation.duration = 2.0
-		needle.layer.anchorPoint = CGPointMake(1, 0.5)
-		needle.layer.addAnimation(rotationAnimation, forKey: "nil")
+		if speed <= 300 {
+			let rotationAnimation = CABasicAnimation(keyPath: "transform.rotation")
+			rotationAnimation.fromValue = 0.0
+			rotationAnimation.toValue = degreeToRadian(getAngle(speed))
+			rotationAnimation.duration = 2.0
+			needle.layer.anchorPoint = CGPointMake(0.8, 0.2)
+			needle.layer.addAnimation(rotationAnimation, forKey: "nil")
+		}
 	}
 	
 	func degreeToRadian(degree: Double) -> Double {
@@ -96,7 +98,7 @@ class ViewController: UIViewController {
 	
 	func getAngle(speed: Double) -> Double {
 		var angle: Double = Double()
-		let unitAngle = Double(180.00/260.00)
+		let unitAngle = Double(360.00/390.00)
 		angle = unitAngle*speed
 		return angle
 	}
